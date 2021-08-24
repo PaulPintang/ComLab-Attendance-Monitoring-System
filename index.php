@@ -27,7 +27,9 @@
           "This is the BUPC Attendance Monitoring System , Lorem ipsum dolor sit amet usandae! Cum maxime autem quia, expedita quisquam is"</p>
       </div> 
       <div>
-        <button class="rounded pt-1 pb-1 pl-3 pr-3 text-white" style="background-color: #FF8A00;">Start Your Class</button>
+        <a href="./professor/index.php">
+          <button class="rounded pt-1 pb-1 pl-3 pr-3 text-white" style="background-color: #FF8A00;">Start Your Class</button>
+        </a>
       </div>
     </div>
   </div>

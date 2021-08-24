@@ -27,7 +27,10 @@
           "This is the BUPC Attendance Monitoring System , Lorem ipsum dolor sit amet usandae! Cum maxime autem quia, expedita quisquam is"</p>
       </div> 
       <div>
-        <button class="rounded pt-1 pb-1 pl-3 pr-3 text-white" style="background-color: #FF8A00;">I'm present</button>
+        <a href="./student_attendance/student.php">
+          <button class="rounded pt-1 pb-1 pl-3 pr-3 text-white" style="background-color: #FF8A00;">
+          I'm present</button>
+        </a>
       </div>
     </div>
   </div>

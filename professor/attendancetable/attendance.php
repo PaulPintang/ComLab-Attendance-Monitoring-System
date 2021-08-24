@@ -11,17 +11,25 @@
     <title>List of present student's in your class</title>
 </head>
 <body>
+    <!-- include connection to student database -->
+    <?php include('./../../students/student_attendance/studentprocess.php');?>
+
+    <!-- include the process in professor page -->
+    <?php include('profprocess.php');?>
+
     <div class="mx-auto" style="max-width: 1100px">
         <div class="h-14 flex justify-between items-center text-sm sticky top-0 bg-white">
             <h1>BUPC Attendance Monitoring System</h1>
             <div class="flex gap-5">
+            <?php while ($row = mysqli_fetch_array($prof)) { ?>
                 <div class="text-gray-500 flex gap-1 ">
-                    <p class=" text-yellow-400">Professor: </p>
-                    <p>Allan Rempillo</p>
+                    <p class=" text-yellow-400">Professor:</p>
+                    <p><?php echo $row['profName'];?></p>
                 </div>
+
             <div class="flex items-center text-gray-500 gap-1">
                 <i class="far fa-clock"></i>
-                <p>Time out: <span class="text-red-400">11:00 AM</span></p>
+                <p>Time out: <span class="text-red-400"><?php echo $row['timeOut'];?></span></p>
             </div>
             </div>
         </div>
@@ -29,7 +37,7 @@
             <div class="flex justify-between">
                 <div>
                 <div class="flex items-center">
-                    <h1>Hi Allan</h1>
+                    <h1>Hi <span><?php echo strtok($row['profName'], " ");?></span></h1>
                     <img src="../../images/wave.gif" alt="" style="width:30px">
                 </div>
                 <div class="pb-4">
@@ -39,34 +47,42 @@
                 <div class="text-sm">
                     <div class="flex gap-1 items-center">
                         <p>Your Subject:</p>
-                        <p class="text-gray-500">Rizal Works</p>
+                        <p class="text-gray-500"><?php echo $row['profSubject']; ?></p>
                     </div>
                     <div class="flex gap-1 items-center">
                         <p>Course and Year:</p>
-                        <p  class="text-gray-500">BSIS - 4A</p>
+                        <p  class="text-gray-500"><?php echo $row['classCourseY'];?></p>
                     </div>
                     <div class="flex gap-1 items-center">
                         <p>Total no. of students:</p>
-                        <p class="text-gray-500">38</p>
+                        <p class="text-gray-500"><?php echo $row['totalStud'];?></p>
                     </div>
                     <div class="flex gap-1 items-center">
                         <p>Date:</p>
-                        <p class="text-gray-500" id="date"></p>
+                        <p class="text-gray-500"><?php echo $date;?></p>
+                        <!-- <p class="text-gray-500" id="date"></p> -->
                     </div>
                     <div class="flex gap-1 items-center">
                         <p>Time in:</p>
-                        <p class="text-gray-500">10:00 AM</p>
+                        <p class="text-gray-500"><?php echo $row['timeIn']; ?></p>
                     </div>
+                    <!-- <div class="flex gap-1 items-center">
+                        <p>Exact time to end of the class: </p>
+                        <p class="text-gray-500"><?php echo $row['timeOut']; ?></p>
+                    </div> -->
+        <?php } ?>
+                
                     <div class="flex gap-1 items-center">
                         <p>Clock: </p>
-                        <!-- <div class="text-red-400" id="txt"></div> -->
-                        <div class="text-red-400" id="clock"></div>
+                        <!-- <div class="text-red-400" id="MyClockDisplay" onload="showTime()"></div> -->
+                        <div class="text-red-400"><?php echo $TIME;?></div>
                     </div>
                     <div class="pt-3">
-                      <button class="rounded p-1 pl-4 pr-4 bg-green-400 text-white" type="submit">End class</button>
+                      <button class="rounded p-1 pl-4 pr-4 bg-green-400 text-white" type="submit" name="endclass">End class</button>
                       <small class="block text-gray-500 max-w-xs">Clicking this will end the class and generate a file of list of present students in your class today!!</small>
                     </div>
                 </div>
+             
                 </div>
                 <div>
                     <img src="../../images/present.svg" alt="" style="width:380px">
@@ -74,141 +90,49 @@
             </div>
         </div>
         <div class="flex gap-2 w-1/2 pt-7 pb-10">
-            <input type="text" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-yellow-500 focus:outline-none w-full" placeholder="Search present student...">
+            <input type="text" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-yellow-500 focus:outline-none w-full"
+             placeholder="who's here today..."
+             name="search_text"
+             id="search_text"
+             >
             <button class="rounded p-1 pl-5 pr-5 text-white" style="background-color: #FF8A00;" type="submit">Search</button>
         </div>
        
         </div>
         <div class="bg-gray-100">
- <!-- table -->
+
+
+        <!-- table -->
        <div style="font-size: 12px; max-width: 1100px" class="mx-auto">
        <div class="flex justify-between text-gray-500 text-sm pt-10 pb-4">
             <p class="">
                     Your Students:
             </p>
-            <p>Total present: <span class="bg-yellow-400 text-white">35 Students</span></p>
+            <p>Total present: <span class="bg-yellow-400 text-white"><span><?php echo $num_rows?></span> Students</span></p>
        </div>
     
         <ul class="responsive-table">
             <li class="table-header">
+                <div class="col col-2">rank time</div>
                 <div class="col col-2">Name</div>
-                <div class="col col-3">Time in</div>
+                <div class="col col-2">Time in</div>
                 <div class="col col-2">Student ID</div>
                 <div class="col col-2">Year&Block</div>
-                <div class="col col-2">Subject</div>
+                <!-- <div class="col col-2">Subject</div> -->
+                <div class="col col-2">Greetings</div>
             </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
-            <li class="table-row">
-                <div class="col col-2 text-yellow-500" data-label="Job Id">Paul Justine Pintang</div>
-                <div class="col col-3" data-label="Job Id">7:40 PM</div>
-                <div class="col col-2" data-label="Customer Name">BU-6523</div>
-                <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                <div class="col col-2" data-label="Payment Status">Rizal Works</div>
-            </li>
+            <?php while ($row = mysqli_fetch_array($studPresent)) { ?>
+                <li class="table-row">
+                    <div class="col col-2" data-label="Payment Status"><?php echo $row['id']; ?></div>
+                    <div class="col col-2 text-yellow-500" data-label="Job Id"><?php echo $row['studentName']; ?></div>
+                    <div class="col col-2" data-label="Job Id"><?php echo $row['timeIn']; ?></div>
+                    <div class="col col-2" data-label="Customer Name"><?php echo $row['studentId']; ?></div>
+                    <div class="col col-2" data-label="Amount">BSIS-4A</div>
+                    <!-- <div class="col col-2" data-label="Payment Status">Rizal Works</div> -->
+                    <div class="col col-2" data-label="Payment Status"><?php echo $row['greetings']?></div>
+                </li>
+            <?php } ?>
+           
         </ul>
         </div>
         <div class="h-28"></div>
@@ -220,55 +144,38 @@
    
 
  <script>
-    //  Script for clock
-    // function currentTime() {
-    //     var date = new Date(); /* creating object of Date class */
-    //     var hour = date.getHours();
-    //     var min = date.getMinutes();
-    //     var sec = date.getSeconds();
-    //     var midday = "AM";
-    //     midday = (hour >= 12) ? "PM" : "AM";
-    //     hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour);
-    //     hour = updateTime(hour);
-    //     min = updateTime(min);
-    //     sec = updateTime(sec);
-    //     document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " : " + midday; /* adding time to the div */
-    //     var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
-    //     }
-    //     function updateTime(k) {
-    //     if (k < 10) {
-    //         return "0" + k;
-    //     }
-    //     else {
-    //         return k;
-    //     }
-    //     }
-    //  currentTime(); /* calling currentTime() function to initiate the process */
-        var myDate = new Date();
-        var today = new Date();
-
-        var month=new Array();
-        month[0]="Jan";
-        month[1]="Feb";
-        month[2]="Mar";
-        month[3]="Apr";
-        month[4]="May";
-        month[5]="Jun";
-        month[6]="Jul";
-        month[7]="Aug";
-        month[8]="Sep";
-        month[9]="Oct";
-        month[10]="Nov";
-        month[11]="Dec";
-        var hours = myDate.getHours();
-        var minutes = myDate.getMinutes();
-        var ampm = hours >= 12 ? 'pm' : 'am';
-        hours = hours % 12;
-        hours = hours ? hours : 12;
-        minutes = minutes < 10 ? '0'+minutes : minutes;
-        var strTime = hours + ':' + minutes + ampm;
-        // e.g. "13 Nov 2016 11:00pm";
-        document.querySelector('#date').innerHTML=(month[myDate.getMonth()]+" "+myDate.getDate()+" "+myDate.getFullYear()+" ");
-        </script>
+    function showTime(){
+    var date = new Date();
+    var d = date.getDate();
+    var d1 = date.getDay();
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
+    var session = "PM";
+    
+    if(h == 02){
+        h = 12;
+    }
+    
+    
+    if(h > 12){
+        session = "PM";
+    }
+    if(h < 12) {
+    session = "AM"
+    }
+    
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    
+    var time = h + ":" + m + ":" + s + " " + session;
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").textContent = time;
+    
+    setTimeout(showTime, 1000);
+    }
+    showTime();
+ </script>
 </body>
 </html>
