@@ -70,7 +70,7 @@
                         <p>Exact time to end of the class: </p>
                         <p class="text-gray-500"><?php echo $row['timeOut']; ?></p>
                     </div> -->
-        <?php } ?>
+        
                 
                     <div class="flex gap-1 items-center">
                         <p>Clock: </p>
@@ -78,11 +78,13 @@
                         <div class="text-red-400"><?php echo $TIME;?></div>
                     </div>
                     <div class="pt-3">
+                    <a href="profprocess.php?endclass=<?php echo $row['id']; ?>">
                       <button class="rounded p-1 pl-4 pr-4 bg-green-400 text-white" type="submit" name="endclass">End class</button>
+                    </a>
                       <small class="block text-gray-500 max-w-xs">Clicking this will end the class and generate a file of list of present students in your class today!!</small>
                     </div>
                 </div>
-             
+             <?php } ?>
                 </div>
                 <div>
                     <img src="../../images/present.svg" alt="" style="width:380px">
@@ -110,7 +112,7 @@
             </p>
             <p>Total present: <span class="bg-yellow-400 text-white"><span><?php echo $num_rows?></span> Students</span></p>
        </div>
-    
+  
         <ul class="responsive-table">
             <li class="table-header">
                 <div class="col col-2">rank time</div>
@@ -122,17 +124,15 @@
                 <div class="col col-2">Greetings</div>
             </li>
             <?php while ($row = mysqli_fetch_array($studPresent)) { ?>
-                <li class="table-row">
-                    <div class="col col-2" data-label="Payment Status"><?php echo $row['id']; ?></div>
-                    <div class="col col-2 text-yellow-500" data-label="Job Id"><?php echo $row['studentName']; ?></div>
-                    <div class="col col-2" data-label="Job Id"><?php echo $row['timeIn']; ?></div>
-                    <div class="col col-2" data-label="Customer Name"><?php echo $row['studentId']; ?></div>
-                    <div class="col col-2" data-label="Amount">BSIS-4A</div>
-                    <!-- <div class="col col-2" data-label="Payment Status">Rizal Works</div> -->
-                    <div class="col col-2" data-label="Payment Status"><?php echo $row['greetings']?></div>
+                <li class="table-row" id="getdata">
+                    <div class="col col-2" ><?php echo $row['id']; ?></div>
+                    <div class="col col-2 text-yellow-500" ><?php echo $row['studentName']; ?></div>
+                    <div class="col col-2" ><?php echo $row['timeIn']; ?></div>
+                    <div class="col col-2" ><?php echo $row['studentId']; ?></div>
+                    <div class="col col-2" ><?php echo $row['studCourseY']; ?></div>
+                    <div class="col col-2" ><?php echo $row['greetings']?></div>
                 </li>
             <?php } ?>
-           
         </ul>
         </div>
         <div class="h-28"></div>

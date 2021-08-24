@@ -3,7 +3,7 @@
     // connection
     $db = mysqli_connect('localhost', 'root', '', 'attendance');
 
-    // timezone
+    // correct timezone
     date_default_timezone_set("Asia/Manila");
 
     // code for retrieve from database
@@ -36,4 +36,17 @@
     $rows_results = mysqli_query($db, $sql);
     $values = mysqli_fetch_assoc($rows_results);
     $num_rows = $values['total'];
+
+
+    // drop and empty database of professor table
+    if (isset($_GET['endclass'])) {
+            $id = $_GET['endclass'];
+            // query all data from professor table and DELETE
+            mysqli_query($db, "TRUNCATE TABLE professor");
+            // query all data from students table and DELETE
+            mysqli_query($db, "TRUNCATE TABLE students");
+            ;
+            header('location: ../../index.php');
+        }
+
 ?>
