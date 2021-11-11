@@ -12,8 +12,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-  
   <title>BUPC AMS</title>
+
 </head>
 
 <body>
@@ -40,7 +40,7 @@
       <div class="flex justify-between">
         <div>
           <div class="flex items-center">
-            <h1 class="font-bold uppercase text-indigo-700"><span><?php echo strtok($row['profName'], " "); ?></span></h1>
+            <h1 class="font-bold uppercase text-indigo-700"><span>Good Day !!</span></h1>
            
           </div>
           <div class="pb-4">
@@ -54,7 +54,7 @@
             </div>
             <div class="flex gap-1 items-center">
               <p>Course and Year:</p>
-              <p class="text-indigo-500"><?php echo $row['classCourseY']; ?></p>
+              <p class="text-indigo-500"><?php echo $row['classCourseY']; ?>-<?php echo $row['yearlevel']; ?><?php echo $row['block']; ?></p>
             </div>
             <div class="flex gap-1 items-center">
               <p>Total no. of students:</p>
@@ -172,7 +172,7 @@
                   </button></a> 
               </div>
               <div>
-              <input type="text" id="myInput" onkeyup="myFunction()" class="border-2 border-opacity-50 border-indigo-400 rounded p-3 focus:border-purple-500 focus:outline-none" placeholder="Search student..." >
+              <input type="text" id="myInput" onkeyup="myFunction()" class="border-2 border-opacity-50 border-indigo-400 rounded p-2 text-sm focus:border-purple-500 focus:outline-none" placeholder="Search student..." >
               </div>
             </div>
     </div>

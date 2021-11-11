@@ -26,7 +26,7 @@
         $TIME = date("h:i A");
  
         $queryProf = "INSERT INTO professor (profName, profSubject, totalStud, classCourseY, yearlevel, block, timeIn, timeOut)
-         VALUES ('$profName', '$profSubject', '$totalStud', '$classCourseY', '$yearlevel', '$block' '$TIME', '$timeOut')";
+         VALUES ('$profName', '$profSubject', '$totalStud', '$classCourseY', '$yearlevel', '$block', '$TIME', '$timeOut')";
         mysqli_query($db, $queryProf);
 
         // $_SESSION['message'] = "new record has been saved";

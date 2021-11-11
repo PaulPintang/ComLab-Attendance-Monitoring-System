@@ -10,6 +10,23 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
     <title>Good day !!</title>
+     
+    <style>
+           .show {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+
+  
+}
+    </style>
 </head>
 <body>
     <?php include('./attendancetable/profprocess.php');?>
@@ -25,7 +42,7 @@
                 <div class="flex flex-col space-y-3 w-96">
                     <p class="text-sm"> <span class="text-purple-600">Note: </span>The date and time is auto detect by the system once you submit your inputs. Thank you !!</p>
                     <p class="text-sm"><span class="text-purple-600">Date today: </span> <?php echo $date;?></p>
-                    <select class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="profName" required>
+                    <select class="input border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="profName" required>
                         <option selected disabled hidden>Professor</option>
                         <?php $profaccounts = mysqli_query($db, "SELECT * FROM profaccounts ORDER BY ID DESC"); ?>
                         <?php while ($row = mysqli_fetch_array($profaccounts)) { ?>
@@ -33,7 +50,7 @@
                         <?php }?>
                     </select>
 
-                    <select class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="profSubject" required>
+                    <select class="input border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="profSubject" required>
                         <option selected disabled hidden>Subject</option>
                         <?php $subjects = mysqli_query($db, "SELECT * FROM subjects ORDER BY ID DESC"); ?>
                         <?php while ($row = mysqli_fetch_array($subjects)) { ?>
@@ -41,7 +58,7 @@
                         <?php }?>
                     </select>
                     
-                    <select class="text-xs border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="classCourseY" required>
+                    <select class="input text-xs border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="classCourseY" required>
                         <option class="text-sm w-full" selected disabled hidden>Course</option>
                         <?php $course = mysqli_query($db, "SELECT * FROM courses ORDER BY ID DESC"); ?>
                         <?php while ($row = mysqli_fetch_array($course)) { ?>
@@ -50,14 +67,14 @@
                     </select>
 
                     <div class="flex gap-2">
-                        <select class="text-xs border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="yearlevel" required>
+                        <select class="input text-xs border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="yearlevel" required>
                             <option selected disabled hidden>Year Level</option>
                             <option class="text-xs" value="1">1st Year</option>
                             <option class="text-xs" value="2">2nd Year</option>
                             <option class="text-xs" value="3">3rd Year</option>
                             <option class="text-xs" value="4">4th Year</option>
                         </select>
-                        <select class="text-xs border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="block" required>
+                        <select class="input text-xs border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="block" required>
                             <option selected disabled hidden>Block</option>
                             <option class="text-xs" value="A">A</option>
                             <option class="text-xs" value="B">B</option>
@@ -69,18 +86,39 @@
                     
                     
                     <div  class="flex gap-2">
-                    <input type="number" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="No. of students" name="totalStud" required>
-                    <input type="text" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Time Out" name="timeOut" required>
+                    <input type="number" class="input border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="No. of students" name="totalStud" required>
+                    <input type="text" class="input border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Time out" name="timeOut" required>
                     </div>
 
                     
                     <div class="flex justify-center">
-                            <button class="bg-purple-900 rounded p-3 pl-5 pr-5 text-white w-full"
-                            type="submit" name="startclass">Let's Start</button>
+                            <a href="#inputCode"  data-toggle="modal" class="button bg-purple-900 rounded p-3 pl-5 pr-5 text-white w-full">Let's Start</a>
                     </div>
                 </div>
+                 <?php include './popUp.php'?>
             </form>
         </div>
+      
     </div>
+  <script src="../js/jquery-1.12.4.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script>
+let input = document.querySelector(".input");
+let warn = document.querySelector(".warn");
+let code = document.querySelector(".code");
+code.disabled = true;
+warn.style.display = "block";
+input.addEventListener("change", stateHandle);
+
+function stateHandle() {
+    if(input.value === "") {
+       warn.style.display = "block";
+       code.disabled = true;
+    } else {
+       warn.style.display = "none";
+       code.disabled = false;
+    }
+}
+</script>
 </body>
 </html>
