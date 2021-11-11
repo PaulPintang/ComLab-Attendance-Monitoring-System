@@ -87,7 +87,7 @@
                     
                     <div  class="flex gap-2">
                     <input type="number" class="input border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="No. of students" name="totalStud" required>
-                    <input type="text" class="input border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Time out" name="timeOut" required>
+                    <input type="time" class="input border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Time out" name="timeOut" required>
                     </div>
 
                     
