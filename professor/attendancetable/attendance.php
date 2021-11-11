@@ -167,9 +167,9 @@
                   <button class=" p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-white-500 text-sm rounded-lg transition-colors duration-300 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300" type="button" onclick="toggleModal('modal-id')">
                     End Class
                   </button>
-                  <button class=" p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-white-500 text-sm rounded-lg transition-colors duration-300 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">
+                 <a href="generate-report.php" target="_blank"><button class=" p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-white-500 text-sm rounded-lg transition-colors duration-300 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">
                     Generate Report
-                  </button>
+                  </button></a> 
               </div>
               <div>
               <input type="text" id="myInput" onkeyup="myFunction()" class="border-2 border-opacity-50 border-indigo-400 rounded p-3 focus:border-purple-500 focus:outline-none" placeholder="Search student..." >

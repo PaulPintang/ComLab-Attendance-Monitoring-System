@@ -2,8 +2,15 @@
 // Include the main TCPDF library (search for installation path).
 require_once('TCPDF-main/tcpdf.php');
 
+class PDF extends TCPDF 
+{
+ 
+}
+
+
+
 // create new PDF document
-$pdf = new TCPDF('p', 'mm', 'A4', true, 'UTF-8', false);
+$pdf = new PDF('p', 'mm', 'A4', true, 'UTF-8', false);
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
@@ -49,6 +56,7 @@ $pdf->setFontSubsetting(true);
 // print standard ASCII chars, you can use core fonts like
 // helvetica or times to reduce file size.
 $pdf->SetFont('dejavusans', '', 14, '', true);
+
 
 // Add a page
 // This method has several options, check the source code documentation for more information.
