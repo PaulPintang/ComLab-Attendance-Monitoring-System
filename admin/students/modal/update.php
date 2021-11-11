@@ -23,33 +23,33 @@
     scrollbar-width: none;  /* Firefox */
     }
 </style>
-    <div id="add" class="show fade">
+<?php $studEdit = mysqli_query($db, "SELECT * FROM studaccounts"); ?>
+<?php while ($row = mysqli_fetch_array($studEdit)) { ?>
+    <div id="edit<?php echo $row['id'] ?>" class="show fade">
         <div style="max-width: 400px" class="flex px-4 mx-auto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center">
                     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
             <!-- <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>s -->
                     <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all">
                     <div class="bg-white p-5 mx-3 md:my-5 lg:my-5" style="max-width: 500px">
                         <div class="flex justify-between items-center pb-8">
-                            <h1 class="font-semibold text-gray-600 text-xl">Add account</h1>
+                            <h1 class="font-semibold text-gray-600 text-xl">Edit account</h1>
                             <div class="flex items-center gap-5">
                                 <i class="fas fa-close text-gray-300 cursor-pointer" data-dismiss="modal"></i>
                             </div>
                         </div>
                         <div class="overflow-y-auto example">
-                        <form action="./controller.php?action=add" method="post" class="space-y-4 text-xs md:text-base lg:text-base" enctype="multipart/form-data">
+                        <form action="./controller.php?action=update" method="post" class="space-y-4 text-xs md:text-base lg:text-base" enctype="multipart/form-data">
+                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                             <div class="space-y-2">
                                 <p class="text-sm">Name <span class="text-red-500">*</span></p>
-                                <input type="text" value="" autocomplete="off" name="name" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
+                                <input type="text" value="<?php echo $row['studentName']?>" autocomplete="off" name="studentName" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
                             </div>
-                            
+                           
                             <div class="space-y-2">
-                                <p class="text-sm">Username<span class="text-red-500">*</span></p>
-                                <input type="text" value="" autocomplete="off" name="username" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
+                                <p class="text-sm">Student ID <span class="text-red-500">*</span></p>
+                                <input type="text"  value="<?php echo $row['studentId']?>" autocomplete="off" name="studentId" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
                             </div>
-                            <div class="space-y-2">
-                                <p class="text-sm">Passcode <span class="text-red-500">*</span></p>
-                                <input type="password" value="" autocomplete="off" name="passcode" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
-                            </div>
+                           
 
                             <!-- <div>
                                 <p class="text-sm pb-1">Courses<span class="text-red-500">*</span></p>
@@ -88,8 +88,8 @@
                                     <label  class="text-xs text-gray-600">D</label><br>
                                 </div>
                             </div> -->
-                            
-                            <!-- <div>
+<!--                             
+                            <div>
                                 <div class="flex items-center gap-3">
                                      <p class="text-sm">1st Year<span class="text-red-500">*</span></p> 
                                      <div class="bg-yellow-300 w-8 h-2"></div>
@@ -145,20 +145,20 @@
                                 <label  class="text-xs text-gray-600">Programming 1</label><br>
                                 <input type="checkbox" name="vehicle3" value="">
                                 <label  class="text-xs text-gray-600"> WEb development</label><br>
-                            </div>
+                            </div> -->
                            
-                            <div>
+                            <!-- <div>
                                 <small class="text-gray-500">Note: Please make sure you input a correct professor's details. Thank you!</small>
                             </div> -->
                             <div class="flex justify-center">
                                 <div style="font-size: 14px" class="pt-6">
                                     <button type="button" data-dismiss="modal" class="px-6 py-2 bg-gray-100 rounded text-gray-500">
-                                     <a href="../home">
+                                     <a href="">
                                             Cancel
                                     </a>
                                     </button>
-                                    <button class="relative px-6 bg-purple-500 hover:bg-purple-400 py-2 text-white rounded ml-3" name="add" type="submit" onclick="this.classList.toggle('button--loading')">
-                                      <span class="button-text">Add</span>
+                                    <button class="relative px-6 bg-green-500 hover:bg-green-400 py-2 text-white rounded ml-3" name="update" type="submit">
+                                      <span class="button-text">Update</span>
                                     </button>
                                 </div>
                             </div>
@@ -169,3 +169,4 @@
         </div>
     </div>
     </div>
+ <?php } ?>

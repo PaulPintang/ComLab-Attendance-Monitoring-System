@@ -15,7 +15,7 @@
                     </div>
              </a>
         </div>
-               <div class="overflow-y-auto example" style="height: 300px">
+               <div class="overflow-y-auto example" style="height: 260px">
          <table class="min-w-full divide-y divide-gray-200 border-collapse w-full">
             <thead class="sticky top-0">
                 <tr>
@@ -51,14 +51,17 @@
                         <a href="#edit<?php echo $row['id'];?>" data-toggle="modal">
                             <i class="far fa-edit text-gray-400 cursor-pointer hover:text-blue-300 transition-all" style="font-size: 13px"></i>
                         </a>
-                        <a href="delete.php?del=<?php echo $row['id'];?>" name="del">
-                            <i class="fas fa-trash text-gray-300 cursor-pointer hover:text-red-400 transition-all" style="font-size: 13px" onclick="toggleModal('view_event')"></i>
+                        <a href="./controller.php?del=<?php echo $row['id'];?>" name="del">
+                            <i class="fas fa-trash text-gray-300 cursor-pointer hover:text-red-400 transition-all" style="font-size: 13px"></i>
                         </a>
                     </td>
                 </tr>
             <?php } ?>
             </tbody>
         </table>
+      </div>
+      <div class="pt-1">
+        <small class="text-gray-600"><span class="font-bold text-purple-700">Total: </span><b><?php echo $total_professors?></b> professors</small>
       </div>
     </div>
 </div>

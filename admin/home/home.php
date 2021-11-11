@@ -8,9 +8,19 @@
                    </div>
                    <h1 class="text-4xl text-gray-700">Professors</h1> 
                    <div>
-                       <h1 class="text-2xl text-gray-700"><span class="text-purple-600">23</span> accounts</h1>
+                       <h1 class="text-2xl text-gray-700"><span class="text-purple-600"><?php echo $total_professors ?></span> accounts</h1>
                    </div>
                    <a href="../prof/" class="bg-purple-900 text-gray-200 rounded-sm px-4 py-2 text-sm hover:bg-purple-800 transition-all">Manage Accounts</a>
+               </div>
+               <div class="bg-white w-full h-full flex flex-col items-center justify-center space-y-2">
+                   <div class="w-28">
+                       <img src="../images/sub.svg" alt="" class="w-full">
+                   </div>
+                   <h1 class="text-4xl text-gray-700">Subjects</h1> 
+                   <div>
+                       <h1 class="text-2xl text-gray-700"><span class="text-red-400"><?php echo $total_subjects ?></span> subjects</h1>
+                   </div>
+                   <a href="../subjects/" class="bg-red-400 text-gray-200 rounded-sm px-4 py-2 text-sm hover:bg-red-300 transition-all">Manage Subjects</a>
                </div>
                 <div class="bg-white w-full h-full flex flex-col items-center justify-center space-y-2">
                    <div class="w-40 h-40">
@@ -18,7 +28,7 @@
                    </div>
                    <h1 class="text-4xl text-gray-700">Students</h1> 
                    <div>
-                       <h1 class="text-2xl text-gray-700"><span class="text-yellow-400">36</span> accounts</h1>
+                       <h1 class="text-2xl text-gray-700"><span class="text-yellow-400"><?php echo $total_students ?></span> accounts</h1>
                    </div>
                    <a href="../students/" class="bg-yellow-400 text-white rounded-sm px-4 py-2 text-sm hover:bg-yellow-300 transition-all">Manage Accounts</a>
                </div>

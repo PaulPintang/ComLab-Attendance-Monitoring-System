@@ -1,5 +1,24 @@
 <?php
 include('../conn.php');
+
+        // total students
+        $total = "SELECT count(id) AS total FROM studaccounts";
+        $rows_results = mysqli_query($db, $total);
+        $values = mysqli_fetch_assoc($rows_results);
+        $total_students = $values['total'];
+
+        // total students
+        $total = "SELECT count(id) AS total FROM profaccounts";
+        $rows_results = mysqli_query($db, $total);
+        $values = mysqli_fetch_assoc($rows_results);
+        $total_professors = $values['total'];
+
+        // total subjects
+        $total = "SELECT count(id) AS total FROM subjects";
+        $rows_results = mysqli_query($db, $total);
+        $values = mysqli_fetch_assoc($rows_results);
+        $total_subjects = $values['total'];
+
     session_start();
     if (isset($_SESSION['id']) && (isset($_SESSION['username']))) {
 ?>

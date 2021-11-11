@@ -38,19 +38,15 @@
                         <div class="overflow-y-auto example">
                         <form action="./controller.php?action=add" method="post" class="space-y-4 text-xs md:text-base lg:text-base" enctype="multipart/form-data">
                             <div class="space-y-2">
-                                <p class="text-sm">Name <span class="text-red-500">*</span></p>
-                                <input type="text" value="" autocomplete="off" name="name" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
+                                <p class="text-sm">Subject <span class="text-red-500">*</span></p>
+                                <input type="text" value="" autocomplete="off" name="subject" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
                             </div>
                             
-                            <div class="space-y-2">
-                                <p class="text-sm">Username<span class="text-red-500">*</span></p>
-                                <input type="text" value="" autocomplete="off" name="username" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
-                            </div>
-                            <div class="space-y-2">
-                                <p class="text-sm">Passcode <span class="text-red-500">*</span></p>
-                                <input type="password" value="" autocomplete="off" name="passcode" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
-                            </div>
-
+                            <!-- <div class="space-y-2">
+                                <p class="text-sm">Year Level<span class="text-red-500">*</span></p>
+                                <input type="text" value="" autocomplete="off" name="yearlevel" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
+                            </div> -->
+                          
                             <!-- <div>
                                 <p class="text-sm pb-1">Courses<span class="text-red-500">*</span></p>
                                 <input type="checkbox" name="vehicle1" value="">
@@ -157,7 +153,7 @@
                                             Cancel
                                     </a>
                                     </button>
-                                    <button class="relative px-6 bg-purple-500 hover:bg-purple-400 py-2 text-white rounded ml-3" name="add" type="submit" onclick="this.classList.toggle('button--loading')">
+                                    <button class="relative px-6 bg-red-400 hover:bg-red-300 py-2 text-white rounded ml-3" name="add" type="submit" onclick="this.classList.toggle('button--loading')">
                                       <span class="button-text">Add</span>
                                     </button>
                                 </div>
