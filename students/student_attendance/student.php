@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
+    <script src="sweet/sweetalert.min.js"></script> 
+ 	<link rel="stylesheet" type="text/css" href="sweet/sweetalert.css">
+ 	<link rel="stylesheet" type="text/css" href="sweet/facebook.css">
     <title>Student Page</title>
 </head>
 <body>
@@ -39,8 +42,8 @@
                         <input type="text" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Your PC no." name="pcNum">
                     </div>
                     <div class="flex justify-center">
-                            <button class="bg-purple-900 rounded p-3 pl-5 pr-5 text-white w-full"
-                            type="submit" name="startclass">Let's Start</button>
+                            <button id="sweetalert" class="bg-purple-900 rounded p-3 pl-5 pr-5 text-white w-full"
+                            type="submit" name="impresent">Let's Start</button>
                     </div>
                 </div>
             </form>

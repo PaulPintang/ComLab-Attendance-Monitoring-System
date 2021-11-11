@@ -172,9 +172,7 @@
                   </button>
               </div>
               <div>
-                    <button class=" p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-white-500 text-sm rounded-lg transition-colors duration-300 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300" type="button" onclick="toggleModal('modal-id')">
-                    End Class
-                  </button>
+              <input type="text" id="myInput" onkeyup="myFunction()" class="border-2 border-opacity-50 border-indigo-400 rounded p-3 focus:border-purple-500 focus:outline-none" placeholder="Search student..." >
               </div>
             </div>
     </div>
@@ -222,7 +220,7 @@
 	           </div>
 
 	         </td>
-	         <td class="px-6 py-4 whitespace-nowrap">
+	         <td class="px-6 py-4 whitespace-nowrap" id="name">
 	           <div class="text-sm text-gray-900"><?php echo $row['studentName']; ?></div>
 	        
 	         </td>
@@ -332,7 +330,35 @@
     }, 1000);
 
     // window.onload = loadTotal;
+
+
+
+    
   </script>
+  <script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+  
 </body>
 
 </html>

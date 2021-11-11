@@ -38,7 +38,7 @@
                     $query = "INSERT INTO students (studentName, studentId, pcNum, timeIn) VALUES ('$studentName', '$studentId', '$pcNum', '$TIME')";
                     mysqli_query($db, $query);
                     }  
-                    header("location: ../index.php");
+                    header("location: ../../index.php");
                 }
                 else{
                     header("Location: ./student.php?error=Ooops! something wasn't right, please check your inputs");
@@ -48,7 +48,7 @@
             }
 
     }else{
-        header(location: index.php);
+        header("location: index.php");
         exit();
     }
 
