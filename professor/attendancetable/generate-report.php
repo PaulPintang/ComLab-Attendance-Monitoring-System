@@ -84,10 +84,21 @@ $pdf->AddPage();
     <title>Student Information</title>
 </head>
 <body style="font-size: 10px;">
-    <div>
-        <p style="background-color: #f8f8ff;">Course&Year: <b> BSIS-4A </b></p>
-        
+    <div>';
+      $prof = mysqli_query($db, "SELECT * FROM professor");
+      while ($row = mysqli_fetch_array($prof)) { 
+          $profName = $row['profName'];
+          $subject = $row['profSubject'];
+          $course = $row['classCourseY'];
+          $y = $row['yearlevel'];
+          $b = $row['block'];
+
+       $html.= '<p style="background-color: #f8f8ff;">Professor: <b>'.$profName.'</b></p>
+        <p style="background-color: #f8f8ff;">Subject: <b> '.$subject.' </b></p>
+        <p style="background-color: #f8f8ff;">Course&Year: <b> '.$course.'-'.$y. $b.' </b></p>
+      
         <p style="font-size: 10px;">DATE: '.$date.'</p>';
+       }
           $getA = mysqli_query($db, "SELECT * FROM professor");
          while($row = mysqli_fetch_array($getA)){
              $a = $row['totalStud'];
