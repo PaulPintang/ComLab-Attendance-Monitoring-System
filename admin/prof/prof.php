@@ -22,11 +22,8 @@
                     <th scope="col" class="md:px-6 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm">
                         Name
                     </th>
-                    <th scope="col" class="hidden md:table-cell lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm">
-                        Username
-                    </th>
                     <th scope="col" class="w-48 hidden md:table-cell lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm">
-                        Password
+                        Passcode
                     </th>
                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm">
                        
@@ -42,8 +39,6 @@
             <?php while ($row = mysqli_fetch_array($profaccounts)) { ?>
                 <tr >
                     <td class="pl-6"> <small><?php echo $row['profName']; ?></small> </td>
-                     <td class="pl-6"> <small><?php echo $row['username']; ?></small> </td>
-                     <!-- <td class="pl-6"> <small><?php echo $row['passcode']; ?></small> </td> -->
                      <td class="pl-6 pr-11"> 
                         <input type="text" class="text-xs focus:outline-none w-full" value="<?php echo $row['passcode'] ?>" readonly> 
                     </td>
@@ -60,8 +55,13 @@
             </tbody>
         </table>
       </div>
-      <div class="pt-1">
+      <div class="pt-1 flex justify-between w-full">
         <small class="text-gray-600"><span class="font-bold text-purple-700">Total: </span><b><?php echo $total_professors?></b> professors</small>
+        <div class="flex items-center gap-2">
+            <a href="../subjects/"><small class="text-red-400">subjects</small></a>
+           <div><small>>></small></div> 
+            <a href="../students/"><small class="text-yellow-400">students</small></a>
+        </div>
       </div>
     </div>
 </div>

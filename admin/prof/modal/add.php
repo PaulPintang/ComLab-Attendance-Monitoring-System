@@ -41,11 +41,6 @@
                                 <p class="text-sm">Name <span class="text-red-500">*</span></p>
                                 <input type="text" value="" autocomplete="off" name="name" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
                             </div>
-                            
-                            <div class="space-y-2">
-                                <p class="text-sm">Username<span class="text-red-500">*</span></p>
-                                <input type="text" value="" autocomplete="off" name="username" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
-                            </div>
                             <div class="space-y-2">
                                 <p class="text-sm">Passcode <span class="text-red-500">*</span></p>
                                 <input type="password" value="" autocomplete="off" name="passcode" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">

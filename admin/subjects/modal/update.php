@@ -32,7 +32,7 @@
                     <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all">
                     <div class="bg-white p-5 mx-3 md:my-5 lg:my-5" style="max-width: 500px">
                         <div class="flex justify-between items-center pb-8">
-                            <h1 class="font-semibold text-gray-600 text-xl">Edit account</h1>
+                            <h1 class="font-semibold text-gray-600 text-xl">Edit subject</h1>
                             <div class="flex items-center gap-5">
                                 <i class="fas fa-close text-gray-300 cursor-pointer" data-dismiss="modal"></i>
                             </div>
@@ -41,7 +41,7 @@
                         <form action="./controller.php?action=update" method="post" class="space-y-4 text-xs md:text-base lg:text-base" enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                             <div class="space-y-2">
-                                <p class="text-sm">Name <span class="text-red-500">*</span></p>
+                                <p class="text-sm">Subject <span class="text-red-500">*</span></p>
                                 <input type="text" value="<?php echo $row['subject']?>" autocomplete="off" name="subject" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
                             </div>
                            

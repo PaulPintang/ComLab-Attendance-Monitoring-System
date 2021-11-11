@@ -21,10 +21,9 @@ switch ($action) {
 		 include('../conn.php');
 		 if (isset($_POST['add'])){
             $profName = $_POST['profName'];
-            $username = $_POST['username'];
             $passcode = $_POST['passcode'];
 
-            mysqli_query($db, "INSERT INTO profaccounts (profName, username, passcode) VALUES ('$profName', '$username', '$passcode')");
+            mysqli_query($db, "INSERT INTO profaccounts (profName, passcode) VALUES ('$profName', '$passcode')");
 			header("location: ./");
           }
 	}
@@ -34,10 +33,9 @@ switch ($action) {
 		 if (isset($_POST['update'])){
 			$id = $_POST['id'];
             $profName = $_POST['profName'];
-            $username = $_POST['username'];
             $passcode = $_POST['passcode'];
 
-            mysqli_query($db, "UPDATE profaccounts SET profName='$profName', username='$username', passcode='$passcode'  WHERE id=$id");
+            mysqli_query($db, "UPDATE profaccounts SET profName='$profName', passcode='$passcode'  WHERE id=$id");
 			header("location: ./");
        
           }

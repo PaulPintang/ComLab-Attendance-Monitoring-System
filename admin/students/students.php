@@ -52,8 +52,13 @@
             </tbody>
         </table>
       </div>
-      <div class="pt-1">
+      <div class="pt-1 flex justify-between items-center">
         <small class="text-gray-600"><span class="font-bold text-yellow-400">Total: </span><b><?php echo $total_students?></b> students</small>
+        <div class="flex items-center gap-2">
+            <a href="../subjects/"><small class="text-red-400">subjects</small></a>
+           <div><small>>></small></div> 
+            <a href="../prof/"><small class="text-purple-700">professors</small></a>
+        </div>
       </div>
     </div>
 </div>

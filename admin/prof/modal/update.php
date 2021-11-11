@@ -42,13 +42,9 @@
                             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                             <div class="space-y-2">
                                 <p class="text-sm">Name <span class="text-red-500">*</span></p>
-                                <input type="text" value="<?php echo $row['name']?>" autocomplete="off" name="name" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
+                                <input type="text" value="<?php echo $row['profName']?>" autocomplete="off" name="profName" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
                             </div>
-                           
-                            <div class="space-y-2">
-                                <p class="text-sm">Username<span class="text-red-500">*</span></p>
-                                <input type="text"  value="<?php echo $row['username']?>" autocomplete="off" name="username" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
-                            </div>
+                            
                             <div class="space-y-2">
                                 <p class="text-sm">Passcode <span class="text-red-500">*</span></p>
                                 <input type="text"  value="<?php echo $row['passcode']?>" autocomplete="off" name="passcode" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">

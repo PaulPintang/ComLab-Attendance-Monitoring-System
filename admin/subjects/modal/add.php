@@ -30,7 +30,7 @@
                     <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all">
                     <div class="bg-white p-5 mx-3 md:my-5 lg:my-5" style="max-width: 500px">
                         <div class="flex justify-between items-center pb-8">
-                            <h1 class="font-semibold text-gray-600 text-xl">Add account</h1>
+                            <h1 class="font-semibold text-gray-600 text-xl">Add subject</h1>
                             <div class="flex items-center gap-5">
                                 <i class="fas fa-close text-gray-300 cursor-pointer" data-dismiss="modal"></i>
                             </div>
