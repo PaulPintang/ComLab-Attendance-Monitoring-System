@@ -173,7 +173,7 @@
                   <button class=" p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 hover:border-red-500 text-white-500 text-sm rounded-lg transition-colors duration-300 transform hover:bg-red-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300" type="button" onclick="toggleModal('modal-id')">
                     End Class
                   </button>
-                 <a href="generate-report.php" target="_blank"><button class=" p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-white-500 text-sm rounded-lg transition-colors duration-300 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">
+                 <a href="generate-report.php"><button class=" p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-white-500 text-sm rounded-lg transition-colors duration-300 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">
                     Generate Report
                   </button></a> 
               </div>
