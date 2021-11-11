@@ -44,8 +44,8 @@
                         <a href="#edit<?php echo $row['id'];?>" data-toggle="modal">
                             <i class="far fa-edit text-gray-400 cursor-pointer hover:text-blue-300 transition-all" style="font-size: 13px"></i>
                         </a>
-                        <a href="delete.php?del=<?php echo $row['id'];?>" name="del">
-                            <i class="fas fa-trash text-gray-300 cursor-pointer hover:text-red-400 transition-all" style="font-size: 13px" onclick="toggleModal('view_event')"></i>
+                       <a href="./controller.php?del=<?php echo $row['id'];?>" name="del">
+                            <i class="fas fa-trash text-gray-300 cursor-pointer hover:text-red-400 transition-all" style="font-size: 13px"></i>
                         </a>
                     </td>
                 </tr>

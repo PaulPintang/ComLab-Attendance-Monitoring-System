@@ -11,7 +11,7 @@ switch ($action) {
 		doUpdate();
 		break;
 
-	case 'delete':
+	case 'del':
 		doDelete();
 		break;
 
