@@ -92,7 +92,7 @@
 
                     
                     <div class="flex justify-center">
-                            <a href="#inputCode"  data-toggle="modal" class="button bg-purple-900 rounded p-3 pl-5 pr-5 text-white w-full">Let's Start</a>
+                            <a href="#inputCode"  data-toggle="modal" class="text-center button bg-purple-900 rounded p-3 pl-5 pr-5 text-white w-full">Let's Start</a>
                     </div>
                 </div>
                  <?php include './popUp.php'?>
@@ -102,23 +102,5 @@
     </div>
   <script src="../js/jquery-1.12.4.js"></script>
   <script src="../js/bootstrap.min.js"></script>
-  <!-- <script>
-let input = document.querySelector(".input");
-let warn = document.querySelector(".warn");
-let code = document.querySelector(".code");
-code.disabled = true;
-warn.style.display = "block";
-input.addEventListener("change", stateHandle);
-
-function stateHandle() {
-    if(input.value === "") {
-       warn.style.display = "block";
-       code.disabled = true;
-    } else {
-       warn.style.display = "none";
-       code.disabled = false;
-    }
-}
-</script> -->
 </body>
 </html>

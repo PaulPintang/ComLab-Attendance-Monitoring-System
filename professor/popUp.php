@@ -22,7 +22,6 @@
                         <div>
                         <div class="flex flex-col justify-center items-center pb-8">
                             <h1 class="font-semibold text-gray-600 text-xl text-center">INPUT YOUR SECURITY CODE!</h1>
-                            <small class="warn block text-red-400">Opps!! all inputs are required!!</small>
                         </div>
                         <div class="overflow-y-auto example">
                         <form action="./controller.php?action=add" method="post" class="space-y-4 text-xs md:text-base lg:text-base" enctype="multipart/form-data">

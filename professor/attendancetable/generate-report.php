@@ -1,10 +1,22 @@
 <?php
 // Include the main TCPDF library (search for installation path).
+include('../../admin/conn.php');
 require_once('TCPDF-main/tcpdf.php');
+
+date_default_timezone_set("Asia/Manila");
+    $date = date("D M d, Y h:i: A");
+
+    $sql = "SELECT count(id) AS total FROM students";
+    $rows_results = mysqli_query($db, $sql);
+    $values = mysqli_fetch_assoc($rows_results);
+    $num_rows = $values['total'];
+
+
 
 class PDF extends TCPDF 
 {
- 
+  // PAGE FOOTER
+   
 }
 
 
@@ -58,10 +70,59 @@ $pdf->setFontSubsetting(true);
 $pdf->SetFont('dejavusans', '', 14, '', true);
 
 
+
 // Add a page
 // This method has several options, check the source code documentation for more information.
 $pdf->AddPage();
 
+ $html = '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+</head>
+<body style="font-size: 10px;">
+    <div>
+        <p style="background-color: #f8f8ff;">Course&Year: <b> BSIS-4A </b></p>
+        
+        <p style="font-size: 10px;">DATE: '.$date.'</p>';
+          $getA = mysqli_query($db, "SELECT * FROM professor");
+         while($row = mysqli_fetch_array($getA)){
+             $a = $row['totalStud'];
+       $html.= '  <b>Total = '.$a.' students</b>
+         <p>Total Present = <span style="color: blue">'.$num_rows.'</span></p>
+      
+          <p>Total Absent = <span style="color: orange">'.$a - $num_rows.'</span></p>';
+         }
+         $html.= '<p style="color: blue">PRESENT</p>
+        <table border=".1" cellspacing="3" cellpadding="4">
+            <tr>
+                <th align="center">Name</th>
+                <th align="center">Student ID</th>
+                <th align="center">Time In</th>
+                <th align="center">PC Number</th>
+            </tr>';
+         $getStudent = mysqli_query($db, "SELECT * FROM students");
+         while($row = mysqli_fetch_array($getStudent)){
+            $studentName = $row['studentName'];
+            $studentId = $row['studentId'];
+            $timeIn = $row['timeIn'];
+            $pcNum = $row['pcNum'];
+            $html.= '<tr>
+                <td align="center">'.$studentName.'</td>
+                <td align="center">'.$studentId.'</td>
+                <td align="center">'.$timeIn.'</td>
+                <td align="center">PC-'.$pcNum.'</td>
+            </tr>';
+        } 
+            $html.='
+        </table>
+</body>
+</html>';
+     $pdf->writeHTML($html, true, false, true, false, '');
+
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
-$pdf->Output('example_001.pdf', 'I');
+$pdf->Output('Attendance.pdf', 'I');

@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     if (isset($_SESSION['id']) && (isset($_SESSION['profName']))) {
         # code...
 ?>
@@ -25,6 +24,8 @@
 
 <body>
   <!-- include the process in professor page -->
+  <!-- <?php include('profprocess.php'); ?> -->
+
   <div class="mx-auto" style="max-width: 1100px">
     <div class="h-14 flex justify-between items-center text-sm sticky top-0 bg-white">
       <h1 class="font-bold uppercase text-gray-600">Attendance Monitoring System for CSD Laboratory</h1>
@@ -132,8 +133,8 @@
                     </button>
 
                     <a href="profprocess.php?endclass=<?php echo $row['id']; ?>">
-                      <button name="endclass" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-purple-600 text-base font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm type=" button" onclick="toggleModal('modal-id')">
-                        End Class
+                      <button name="endclass" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-500 transition-all text-base font-medium text-white hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm type=" button" onclick="toggleModal('modal-id')">
+                           End Class
                       </button>
                     </a>
                   </div>
@@ -168,8 +169,8 @@
       </div>
 
         <div class="flex justify-between w-full pb-10" style="margin-top: -20px">
-              <div>
-                  <button class=" p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-white-500 text-sm rounded-lg transition-colors duration-300 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300" type="button" onclick="toggleModal('modal-id')">
+              <div class="flex gap-2">
+                  <button class=" p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 hover:border-red-500 text-white-500 text-sm rounded-lg transition-colors duration-300 transform hover:bg-red-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300" type="button" onclick="toggleModal('modal-id')">
                     End Class
                   </button>
                  <a href="generate-report.php" target="_blank"><button class=" p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-white-500 text-sm rounded-lg transition-colors duration-300 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">
@@ -179,7 +180,7 @@
               <div>
               <input type="text" id="myInput" onkeyup="myFunction()" class="border-2 border-opacity-50 border-indigo-400 rounded p-2 text-sm focus:border-purple-500 focus:outline-none" placeholder="Search student..." >
               </div>
-            </div>
+        </div>
     </div>
 
 
