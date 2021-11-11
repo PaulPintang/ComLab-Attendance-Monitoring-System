@@ -1,4 +1,5 @@
 <?php
+include('../conn.php');
     session_start();
     if (isset($_SESSION['id']) && (isset($_SESSION['username']))) {
 ?>
@@ -9,7 +10,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>College Student Council 2021</title>
@@ -30,6 +30,16 @@
         }
     </script>
     <style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .example::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .example {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        }
+
         .button:active {
         background: #007a63;
         }
@@ -73,7 +83,7 @@
    </style>
 </head>
 <body onload=display_c6();>
-    <section class="px-6">
+    <section class="px-6 md:px-14 lg:px-14">
         <div class="flex mx-auto container justify-between items-center">
             <div class="flex items-center gap-3 py-7">
                  <!-- <img class="h-8 w-auto sm:h-10" src="../images/index.jpg" > -->
@@ -111,9 +121,7 @@
             <div class="hidden md:flex lg:flex h-4 bg-gray-200" style="width: 1.2px"></div>
             <div class="flex justify-between items-center w-full">
                 <div class="flex gap-3 items-center ">
-                    <a href="../home" class="text-gray-400 hover:text-yellow-400 active:text-blue-400 font-medium transition-all">Home</a>
-                    <a href="../events" class="text-blue-400 hover:text-yellow-400 active:text-blue-400 font-medium transition-all">Professor</a>
-                    <a href="../reports" class="text-gray-400 hover:text-yellow-400 active:text-blue-400 font-medium transition-all">Students</a>
+                    <a href="../home" class="text-purple-700 hover:text-purple-500 active:text-blue-400 font-medium transition-all">Home</a>
                     <a href="../logs" class="text-gray-400 active:text-blue-400 hover:text-yellow-400 font-medium transition-all">Logs</a>
                     <!-- <a href="../officers"><i class="fas fa-user-cog text-gray-500 hover:text-yellow-300 active:text-blue-500  transition-all"></i></a> -->
                 </div>
@@ -136,6 +144,8 @@
         <small>Attendance Monitoring System for CSD Laboratory &copy; 2021 </small>
     </div>
    </body>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </html>
 <?php
     }else{
