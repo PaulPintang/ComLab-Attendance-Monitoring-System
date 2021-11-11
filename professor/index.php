@@ -46,7 +46,7 @@
                         <option selected disabled hidden>Professor</option>
                         <?php $profaccounts = mysqli_query($db, "SELECT * FROM profaccounts ORDER BY ID DESC"); ?>
                         <?php while ($row = mysqli_fetch_array($profaccounts)) { ?>
-                            <option class="text-xs"><?php echo $row['name'] ?></option>
+                            <option class="text-xs"><?php echo $row['profName'] ?></option>
                         <?php }?>
                     </select>
 
@@ -102,7 +102,7 @@
     </div>
   <script src="../js/jquery-1.12.4.js"></script>
   <script src="../js/bootstrap.min.js"></script>
-  <script>
+  <!-- <script>
 let input = document.querySelector(".input");
 let warn = document.querySelector(".warn");
 let code = document.querySelector(".code");
@@ -119,6 +119,6 @@ function stateHandle() {
        code.disabled = false;
     }
 }
-</script>
+</script> -->
 </body>
 </html>

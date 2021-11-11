@@ -41,7 +41,7 @@
             <?php $profaccounts = mysqli_query($db, "SELECT * FROM profaccounts ORDER BY ID DESC"); ?>
             <?php while ($row = mysqli_fetch_array($profaccounts)) { ?>
                 <tr >
-                    <td class="pl-6"> <small><?php echo $row['name']; ?></small> </td>
+                    <td class="pl-6"> <small><?php echo $row['profName']; ?></small> </td>
                      <td class="pl-6"> <small><?php echo $row['username']; ?></small> </td>
                      <!-- <td class="pl-6"> <small><?php echo $row['passcode']; ?></small> </td> -->
                      <td class="pl-6 pr-11"> 

@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    if (isset($_SESSION['id']) && (isset($_SESSION['profName']))) {
+        # code...
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +25,6 @@
 
 <body>
   <!-- include the process in professor page -->
-  <?php include('profprocess.php'); ?>
-
   <div class="mx-auto" style="max-width: 1100px">
     <div class="h-14 flex justify-between items-center text-sm sticky top-0 bg-white">
       <h1 class="font-bold uppercase text-gray-600">Attendance Monitoring System for CSD Laboratory</h1>
@@ -362,3 +367,10 @@ function myFunction() {
 </body>
 
 </html>
+<?php
+    }else{
+          header("location: ../index.php");
+          exit();
+    }
+
+?>

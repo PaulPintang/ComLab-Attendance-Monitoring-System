@@ -27,7 +27,7 @@
                         <div class="overflow-y-auto example">
                         <form action="./controller.php?action=add" method="post" class="space-y-4 text-xs md:text-base lg:text-base" enctype="multipart/form-data">
                             <div class="space-y-2 w-80 mx-auto">
-                                <input type="text" value="" autocomplete="off" name="subject" class="code transition-colors text-center text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-4 px-2 text-gray-500 w-full">
+                                <input type="text" value="" autocomplete="off" name="passcode" class="code transition-colors text-center text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-4 px-2 text-gray-500 w-full">
                             </div>
                          
                             <div class="flex justify-center">
