@@ -25,11 +25,8 @@
                     <th scope="col" class="hidden md:table-cell lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm">
                         Username
                     </th>
-                    <th scope="col" class="hidden md:table-cell lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm">
+                    <th scope="col" class="w-48 hidden md:table-cell lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm">
                         Password
-                    </th>
-                     <th scope="col" class=" hidden md:table-cell lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm">
-                        Total Subjects
                     </th>
                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm">
                        
@@ -46,7 +43,10 @@
                 <tr >
                     <td class="pl-6"> <small><?php echo $row['name']; ?></small> </td>
                      <td class="pl-6"> <small><?php echo $row['username']; ?></small> </td>
-                     <td class="pl-6"> <small><?php echo $row['passcode']; ?></small> </td>
+                     <!-- <td class="pl-6"> <small><?php echo $row['passcode']; ?></small> </td> -->
+                     <td class="pl-6 pr-11"> 
+                        <input type="text" class="text-xs focus:outline-none w-full" value="<?php echo $row['passcode'] ?>" readonly> 
+                    </td>
                      <td class="text-right px-2 md:px-2 lg:px-2 py-2 whitespace-nowrap space-x-3">
                         <a href="#edit<?php echo $row['id'];?>" data-toggle="modal">
                             <i class="far fa-edit text-gray-400 cursor-pointer hover:text-blue-300 transition-all" style="font-size: 13px"></i>
@@ -65,3 +65,5 @@
 <!-- MODAL -->
     <?php include './modal/add.php'?>
     <?php include './modal/update.php'?>
+
+

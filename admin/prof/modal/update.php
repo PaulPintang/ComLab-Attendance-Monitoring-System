@@ -32,28 +32,28 @@
                     <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all">
                     <div class="bg-white p-5 mx-3 md:my-5 lg:my-5" style="max-width: 500px">
                         <div class="flex justify-between items-center pb-8">
-                            <h1 class="font-semibold text-gray-600 text-xl">Add account</h1>
+                            <h1 class="font-semibold text-gray-600 text-xl">Edit account</h1>
                             <div class="flex items-center gap-5">
                                 <i class="fas fa-close text-gray-300 cursor-pointer" data-dismiss="modal"></i>
                             </div>
                         </div>
-                        <div class="overflow-y-auto example" style="height: 440px">
+                        <div class="overflow-y-auto example">
                         <form action="./controller.php?action=update" method="post" class="space-y-4 text-xs md:text-base lg:text-base" enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                             <div class="space-y-2">
                                 <p class="text-sm">Name <span class="text-red-500">*</span></p>
-                                <input type="text" value="<?php echo $row['name']?>" autocomplete="off" name="name" class="bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
+                                <input type="text" value="<?php echo $row['name']?>" autocomplete="off" name="name" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
                             </div>
-                            <div class="flex gap-3">
-                                <div class="space-y-2">
-                                    <p class="text-sm">Username<span class="text-red-500">*</span></p>
-                                    <input type="text"  value="<?php echo $row['username']?>" autocomplete="off" name="username" class="bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
-                                </div>
-                                <div class="space-y-2">
-                                    <p class="text-sm">Passcode <span class="text-red-500">*</span></p>
-                                    <input type="password"  value="<?php echo $row['passcode']?>" autocomplete="off" name="passcode" class="bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
-                                </div>
+                           
+                            <div class="space-y-2">
+                                <p class="text-sm">Username<span class="text-red-500">*</span></p>
+                                <input type="text"  value="<?php echo $row['username']?>" autocomplete="off" name="username" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
                             </div>
+                            <div class="space-y-2">
+                                <p class="text-sm">Passcode <span class="text-red-500">*</span></p>
+                                <input type="text"  value="<?php echo $row['passcode']?>" autocomplete="off" name="passcode" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
+                            </div>
+                           
 
                             <!-- <div>
                                 <p class="text-sm pb-1">Courses<span class="text-red-500">*</span></p>
@@ -92,7 +92,7 @@
                                     <label  class="text-xs text-gray-600">D</label><br>
                                 </div>
                             </div> -->
-                            
+<!--                             
                             <div>
                                 <div class="flex items-center gap-3">
                                      <p class="text-sm">1st Year<span class="text-red-500">*</span></p> 
@@ -149,19 +149,19 @@
                                 <label  class="text-xs text-gray-600">Programming 1</label><br>
                                 <input type="checkbox" name="vehicle3" value="">
                                 <label  class="text-xs text-gray-600"> WEb development</label><br>
-                            </div>
+                            </div> -->
                            
-                            <div>
+                            <!-- <div>
                                 <small class="text-gray-500">Note: Please make sure you input a correct professor's details. Thank you!</small>
-                            </div>
+                            </div> -->
                             <div class="flex justify-center">
-                                <div style="font-size: 14px">
+                                <div style="font-size: 14px" class="pt-6">
                                     <button type="button" data-dismiss="modal" class="px-6 py-2 bg-gray-100 rounded text-gray-500">
                                      <a href="">
                                             Cancel
                                     </a>
                                     </button>
-                                    <button class="relative px-6 bg-purple-500 hover:bg-purple-400 py-2 text-white rounded ml-3" name="update" type="submit">
+                                    <button class="relative px-6 bg-green-500 hover:bg-green-400 py-2 text-white rounded ml-3" name="update" type="submit">
                                       <span class="button-text">Update</span>
                                     </button>
                                 </div>

@@ -35,21 +35,20 @@
                                 <i class="fas fa-close text-gray-300 cursor-pointer" data-dismiss="modal"></i>
                             </div>
                         </div>
-                        <div class="overflow-y-auto example" style="height: 440px">
+                        <div class="overflow-y-auto example">
                         <form action="./controller.php?action=add" method="post" class="space-y-4 text-xs md:text-base lg:text-base" enctype="multipart/form-data">
                             <div class="space-y-2">
                                 <p class="text-sm">Name <span class="text-red-500">*</span></p>
                                 <input type="text" value="" autocomplete="off" name="name" class="bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
                             </div>
-                            <div class="flex gap-3">
-                                <div class="space-y-2">
-                                    <p class="text-sm">Username<span class="text-red-500">*</span></p>
-                                    <input type="text" value="" autocomplete="off" name="username" class="bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
-                                </div>
-                                <div class="space-y-2">
-                                    <p class="text-sm">Passcode <span class="text-red-500">*</span></p>
-                                    <input type="password" value="" autocomplete="off" name="passcode" class="bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
-                                </div>
+                            
+                            <div class="space-y-2">
+                                <p class="text-sm">Username<span class="text-red-500">*</span></p>
+                                <input type="text" value="" autocomplete="off" name="username" class="bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm">Passcode <span class="text-red-500">*</span></p>
+                                <input type="password" value="" autocomplete="off" name="passcode" class="bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
                             </div>
 
                             <!-- <div>
@@ -90,7 +89,7 @@
                                 </div>
                             </div> -->
                             
-                            <div>
+                            <!-- <div>
                                 <div class="flex items-center gap-3">
                                      <p class="text-sm">1st Year<span class="text-red-500">*</span></p> 
                                      <div class="bg-yellow-300 w-8 h-2"></div>
@@ -150,9 +149,9 @@
                            
                             <div>
                                 <small class="text-gray-500">Note: Please make sure you input a correct professor's details. Thank you!</small>
-                            </div>
+                            </div> -->
                             <div class="flex justify-center">
-                                <div style="font-size: 14px">
+                                <div style="font-size: 14px" class="pt-6">
                                     <button type="button" data-dismiss="modal" class="px-6 py-2 bg-gray-100 rounded text-gray-500">
                                      <a href="../home">
                                             Cancel
