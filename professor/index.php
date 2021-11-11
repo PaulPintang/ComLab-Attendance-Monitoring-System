@@ -1,3 +1,6 @@
+<?php
+    include('../admin/conn.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,34 +25,52 @@
                 <div class="flex flex-col space-y-3 w-96">
                     <p class="text-sm"> <span class="text-purple-600">Note: </span>The date and time is auto detect by the system once you submit your inputs. Thank you !!</p>
                     <p class="text-sm"><span class="text-purple-600">Date today: </span> <?php echo $date;?></p>
-                    <input type="text" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none" placeholder="Your name" name="profName" required>
-                    <select class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Course" name="classCourseY" required>
-                    <option selected disabled hidden>Subject</option>
-                    <option>Option 1</option>
+                    <select class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="profName" required>
+                        <option selected disabled hidden>Professor</option>
+                        <?php $profaccounts = mysqli_query($db, "SELECT * FROM profaccounts ORDER BY ID DESC"); ?>
+                        <?php while ($row = mysqli_fetch_array($profaccounts)) { ?>
+                            <option class="text-xs"><?php echo $row['name'] ?></option>
+                        <?php }?>
+                    </select>
+
+                    <select class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="profSubject" required>
+                        <option selected disabled hidden>Subject</option>
+                        <?php $subjects = mysqli_query($db, "SELECT * FROM subjects ORDER BY ID DESC"); ?>
+                        <?php while ($row = mysqli_fetch_array($subjects)) { ?>
+                            <option class="text-xs" value="<?php echo $row['subject'] ?>"><?php echo $row['subject']; ?></option>
+                        <?php }?>
                     </select>
                     
-                    <select class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Course" name="classCourseY" required>
-                    <option selected disabled hidden>Course</option>
-                    <option>Option 1</option>
+                    <select class="text-xs border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="classCourseY" required>
+                        <option class="text-sm w-full" selected disabled hidden>Course</option>
+                        <?php $course = mysqli_query($db, "SELECT * FROM courses ORDER BY ID DESC"); ?>
+                        <?php while ($row = mysqli_fetch_array($course)) { ?>
+                            <option  class="text-xs w-full" value="<?php echo $row['code']?>"><?php echo $row['course'] ?></option>
+                        <?php }?>
                     </select>
+
                     <div class="flex gap-2">
-                        <select class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Year" name="year" required>
-                        <option selected disabled hidden>Year</option>
-                        <option>Option 1</option>
+                        <select class="text-xs border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="yearlevel" required>
+                            <option selected disabled hidden>Year Level</option>
+                            <option class="text-xs" value="1">1st Year</option>
+                            <option class="text-xs" value="2">2nd Year</option>
+                            <option class="text-xs" value="3">3rd Year</option>
+                            <option class="text-xs" value="4">4th Year</option>
                         </select>
-                    <select class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Block" name="block" required>
-                        <option selected disabled hidden>Block</option>
-                        <option>Option 1</option>
+                        <select class="text-xs border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="block" required>
+                            <option selected disabled hidden>Block</option>
+                            <option class="text-xs" value="A">A</option>
+                            <option class="text-xs" value="B">B</option>
+                            <option class="text-xs" value="C">C</option>
+                            <option class="text-xs" value="D">D</option>
                         </select>
-            
-                        <!-- <input type="text" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Your class block" name="classBlock"> -->
                     </div>
                     <small style="font-size: 10px" class="text-gray-500">This timeout is the exact time to end the class: Example: type '12:00 AM '</small>
                     
                     
                     <div  class="flex gap-2">
                     <input type="number" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="No. of students" name="totalStud" required>
-                    <input type="text" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Security Code" name="timeOut" required>
+                    <input type="text" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Time Out" name="timeOut" required>
                     </div>
 
                     

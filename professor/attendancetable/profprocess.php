@@ -20,11 +20,13 @@
         $profSubject = $_POST['profSubject'];
         $totalStud = $_POST['totalStud'];
         $classCourseY = $_POST['classCourseY'];
+        $yearlevel = $_POST['yearlevel'];
+        $block = $_POST['block'];
         $timeOut = $_POST['timeOut'];
         $TIME = date("h:i A");
  
-        $queryProf = "INSERT INTO professor (profName, profSubject, totalStud, classCourseY, timeIn, timeOut)
-         VALUES ('$profName', '$profSubject', '$totalStud', '$classCourseY', '$TIME', '$timeOut')";
+        $queryProf = "INSERT INTO professor (profName, profSubject, totalStud, classCourseY, yearlevel, block, timeIn, timeOut)
+         VALUES ('$profName', '$profSubject', '$totalStud', '$classCourseY', '$yearlevel', '$block' '$TIME', '$timeOut')";
         mysqli_query($db, $queryProf);
 
         // $_SESSION['message'] = "new record has been saved";
