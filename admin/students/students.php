@@ -1,5 +1,5 @@
 
-<div class="w-full p-6" style="height: calc(100vh - 213px">
+<div class="w-full p-6" style="height: calc(100vh - 213px)">
   <div class="bg-white px-6 w-full h-full space-y-2 p-7">
     <div class="flex justify-between items-center pb-2">
             <h1 class="font-medium text-gray-700  " styke="top:40px"><span class="text-yellow-400">Student's </span> account</h1>
@@ -43,7 +43,7 @@
                         <a href="#edit<?php echo $row['id'];?>" data-toggle="modal">
                             <i class="far fa-edit text-gray-400 cursor-pointer hover:text-blue-300 transition-all" style="font-size: 13px"></i>
                         </a>
-                        <a href="delete.php?del=<?php echo $row['id'];?>" name="del">
+                        <a href="./controller.php?action=delete&id=<?php echo $row['id'];?>">
                             <i class="fas fa-trash text-gray-300 cursor-pointer hover:text-red-400 transition-all" style="font-size: 13px" onclick="toggleModal('view_event')"></i>
                         </a>
                     </td>

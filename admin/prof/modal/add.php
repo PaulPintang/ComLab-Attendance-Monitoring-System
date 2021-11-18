@@ -39,7 +39,7 @@
                         <form action="./controller.php?action=add" method="post" class="space-y-4 text-xs md:text-base lg:text-base" enctype="multipart/form-data">
                             <div class="space-y-2">
                                 <p class="text-sm">Name <span class="text-red-500">*</span></p>
-                                <input type="text" value="" autocomplete="off" name="name" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
+                                <input type="text" value="" autocomplete="off" name="profName" class="text-sm bg-gray-100 focus:outline-none border-none focus:bg-gray-200 rounded py-2 px-2 text-gray-500 w-full">
                             </div>
                             <div class="space-y-2">
                                 <p class="text-sm">Passcode <span class="text-red-500">*</span></p>

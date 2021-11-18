@@ -24,7 +24,7 @@ switch ($action) {
             $passcode = $_POST['passcode'];
 
             mysqli_query($db, "INSERT INTO profaccounts (profName, passcode) VALUES ('$profName', '$passcode')");
-			header("location: ./");
+			header("location: ./index.php");
           }
 	}
 
@@ -36,18 +36,19 @@ switch ($action) {
             $passcode = $_POST['passcode'];
 
             mysqli_query($db, "UPDATE profaccounts SET profName='$profName', passcode='$passcode'  WHERE id=$id");
-			header("location: ./");
+			header("location: ./index.php");
        
           }
 	}
 
 	function doDelete(){
 		include ('../conn.php');
-  		  if (isset($_GET['del'])) {
-			$id = $_GET['del'];
+  		
+			$id = $_GET['id'];
 			mysqli_query($db, "DELETE FROM profaccounts WHERE id=$id");
-			header("location: ./");
-   		 }
+	
+			header("location: ./index.php");
+   		 
 	}
 
 ?>

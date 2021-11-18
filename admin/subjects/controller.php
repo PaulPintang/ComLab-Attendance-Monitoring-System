@@ -11,7 +11,7 @@ switch ($action) {
 		doUpdate();
 		break;
 
-	case 'del':
+	case 'delete':
 		doDelete();
 		break;
 
@@ -41,11 +41,11 @@ switch ($action) {
 
 	function doDelete(){
 		include ('../conn.php');
-  		  if (isset($_GET['del'])) {
-			$id = $_GET['del'];
+  		  
+			$id = $_GET['id'];
 			mysqli_query($db, "DELETE FROM subjects WHERE id=$id");
 			header("location: ./");
-   		 }
+   		 
 	}
 
 ?>
