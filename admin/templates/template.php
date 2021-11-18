@@ -31,7 +31,7 @@ include('../conn.php');
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>College Student Council 2021</title>
+    <title>Attendance Monitoring</title>
     <script>
         function display_ct6() {
             var x = new Date()
@@ -112,13 +112,13 @@ include('../conn.php');
             </div>
             <div class="flex items-center gap-2">
                     <div class="hidden md:flex items-center text-sm text-gray-600">
-                       <p> Hello, </p>
-                       <img src="../../images/wave.gif" alt="" style="width: 30px">
-                       <span> Administrator </span>
+                       <!-- <p> Hello, </p>
+                       <img src="../../images/wave.gif" alt="" style="width: 30px"> -->
+                       <span> Administrator Panel</span>
                     </div>
-                    <div class="flex-shrink-0 h-10 w-10 pl-2">
+                    <!-- <div class="flex-shrink-0 h-10 w-10 pl-2"> -->
                         <!-- <img class="h-10 w-10 rounded-full" src="<?php echo '../modals/upload/' . $row['picture']; ?>" alt=""> -->
-                    </div>
+                    <!-- </div> -->
                 <div class="opacity-10">|</div>
                  <div>
                      <form action="../logout.php" method="POST">
@@ -136,18 +136,18 @@ include('../conn.php');
         <hr class="opacity-30">
         <div class="flex gap-3 container mx-auto py-4 items-center" style="font-size: 12px">
             <!-- <button class="bg-gray-100 rounded py-3 px-5 text-gray-700">Dashboard</button> -->
-            <h1 class="hidden md:flex lg:flex text-sm font-medium text-gray-700">System Management</h1>
+            <h1 class=" md:flex lg:flex text-sm font-bold text-indigo-700">Management</h1>
             <div class="hidden md:flex lg:flex h-4 bg-gray-200" style="width: 1.2px"></div>
             <div class="flex justify-between items-center w-full">
                 <div class="flex gap-3 items-center ">
-                    <a href="../home" class="text-purple-700 hover:text-purple-500 active:text-blue-400 font-medium transition-all">Home</a>
-                    <a href="../logs" class="text-gray-400 active:text-blue-400 hover:text-yellow-400 font-medium transition-all">Logs</a>
+                    <a href="../home" class="text-black-700 hover:text-yellow-500 active:text-yellow-400 font-medium transition-all">Home</a>
+                    <!-- <a href="../logs" class="text-black-700 active:text-blue-400 hover:text-yellow-400 font-medium transition-all">Logs</a> -->
                     <!-- <a href="../officers"><i class="fas fa-user-cog text-gray-500 hover:text-yellow-300 active:text-blue-500  transition-all"></i></a> -->
                 </div>
                 <div>
-                   <a href="#about" data-toggle="modal">
+                   <!-- <a href="#about" data-toggle="modal">
                          <i class="fas fa-info-circle fa-lg text-gray-400 cursor-pointer hover:text-blue-300 transition-all"></i>
-                     </a>
+                     </a> -->
                 </div>
             </div>
         </div>

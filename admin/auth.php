@@ -38,7 +38,7 @@
 
                 }
                 else{
-                    header("Location: ./index.php?error=Ooops! something wasn't right, please check your inputs");
+                    header("Location: ./index.php?error=Ooops! something went wrong, please check your inputs");
                     exit();
                     // header("location: student.php");
               }

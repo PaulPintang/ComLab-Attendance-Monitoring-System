@@ -1,10 +1,10 @@
 
-    <div class="flex w-full px-6" style="height: calc(100vh - 213px">
+    <div class="flex w-full px-6" style="height: calc(100vh - 213px)">
         <div class="flex items-center w-full">
            <div class="flex justify-between items-center gap-10 w-full h-full py-7">
                <div class="bg-white w-full h-full flex flex-col items-center justify-center space-y-2">
                    <div class="w-36">
-                       <img src="../images/prof.svg" alt="" class="w-full">
+                       <!-- <img src="../images/prof.svg" alt="" class="w-full"> -->
                    </div>
                    <h1 class="text-4xl text-gray-700">Professors</h1> 
                    <div>
@@ -14,7 +14,7 @@
                </div>
                <div class="bg-white w-full h-full flex flex-col items-center justify-center space-y-2">
                    <div class="w-28">
-                       <img src="../images/sub.svg" alt="" class="w-full">
+                       <!-- <img src="../images/sub.svg" alt="" class="w-full"> -->
                    </div>
                    <h1 class="text-4xl text-gray-700">Subjects</h1> 
                    <div>
@@ -23,8 +23,8 @@
                    <a href="../subjects/" class="bg-red-400 text-gray-200 rounded-sm px-4 py-2 text-sm hover:bg-red-300 transition-all">Manage Subjects</a>
                </div>
                 <div class="bg-white w-full h-full flex flex-col items-center justify-center space-y-2">
-                   <div class="w-40 h-40">
-                       <img src="../images/students.svg" alt="" class="w-full">
+                   <div class="w-28"">
+                       <!-- <img src="../images/students.svg" alt="" class="w-full"> -->
                    </div>
                    <h1 class="text-4xl text-gray-700">Students</h1> 
                    <div>

@@ -69,7 +69,7 @@
 
                 }
                     else{
-                    header("Location: ../index.php?error=profName and passcode not match");
+                    header("Location: ../index.php?error=There is something wrong in your passcode!");
                     exit();
               }
             }

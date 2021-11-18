@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
-    <title>Good day !!</title>
+    <title>Professor's Panel</title>
      
     <style>
            .show {
@@ -40,46 +40,63 @@
             </div> -->
             <form action="./attendancetable/profprocess.php" method="POST">
                 <div class="flex flex-col space-y-3 w-96">
-                    <p class="text-sm"> <span class="text-purple-600">Note: </span>The date and time is auto detect by the system once you submit your inputs. Thank you !!</p>
+
+
+
+
+
+                    
                     <p class="text-sm"><span class="text-purple-600">Date today: </span> <?php echo $date;?></p>
-                    <select class="input border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="profName" required>
-                        <option selected disabled hidden>Professor</option>
+                   
+                   
+                <?php if (!isset($_GET['error'])) { ?>
+                    <p class="text-sm"> <span class="text-purple-600">Note: </span>The date and time is auto detect by the system once you submit your inputs. Thank you !!</p>
+            <?php } ?>
+
+            <?php if (isset($_GET['error'])) { ?>
+                        <div class="text-white pb-2 pt-2 pl-4 bg-red-500 text-sm">
+                            <?php echo $_GET['error']; ?>
+                        </div>
+                    <?php } ?>
+                   
+                    <select class="input border-2  border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="profName" required>
+                        <option class="" selected disabled hidden>Professor</option>
                         <?php $profaccounts = mysqli_query($db, "SELECT * FROM profaccounts ORDER BY ID DESC"); ?>
                         <?php while ($row = mysqli_fetch_array($profaccounts)) { ?>
-                            <option class="text-xs"><?php echo $row['profName'] ?></option>
+                            <option class=""><?php echo $row['profName'] ?></option>
                         <?php }?>
                     </select>
 
-                    <select class="input border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="profSubject" required>
-                        <option selected disabled hidden>Subject</option>
+                    <select  class="input  border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="profSubject" required>
+                        <option class="" selected disabled hidden>Subject</option>
                         <?php $subjects = mysqli_query($db, "SELECT * FROM subjects ORDER BY ID DESC"); ?>
                         <?php while ($row = mysqli_fetch_array($subjects)) { ?>
-                            <option class="text-xs" value="<?php echo $row['subject'] ?>"><?php echo $row['subject']; ?></option>
+                            <option class="" value="<?php echo $row['subject'] ?>"><?php echo $row['subject']; ?></option>
                         <?php }?>
                     </select>
                     
-                    <select class="input text-xs border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="classCourseY" required>
-                        <option class="text-sm w-full" selected disabled hidden>Course</option>
+                    <select  class="input  border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="classCourseY" required>
+                        <option selected disabled hidden>Course</option>
                         <?php $course = mysqli_query($db, "SELECT * FROM courses ORDER BY ID DESC"); ?>
                         <?php while ($row = mysqli_fetch_array($course)) { ?>
-                            <option  class="text-xs w-full" value="<?php echo $row['code']?>"><?php echo $row['course'] ?></option>
+                            <option  class=" w-full" value="<?php echo $row['code']?>"><?php echo $row['course'] ?></option>
                         <?php }?>
                     </select>
 
-                    <div class="flex gap-2">
-                        <select class="input text-xs border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="yearlevel" required>
+                    <div  class="flex gap-2">
+                        <select  class="input  border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="yearlevel" required>
                             <option selected disabled hidden>Year Level</option>
-                            <option class="text-xs" value="1">1st Year</option>
-                            <option class="text-xs" value="2">2nd Year</option>
-                            <option class="text-xs" value="3">3rd Year</option>
-                            <option class="text-xs" value="4">4th Year</option>
+                            <option class="" value="1">1st Year</option>
+                            <option class="" value="2">2nd Year</option>
+                            <option class="" value="3">3rd Year</option>
+                            <option class="" value="4">4th Year</option>
                         </select>
-                        <select class="input text-xs border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="block" required>
+                        <select  class="input  border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="" name="block" required>
                             <option selected disabled hidden>Block</option>
-                            <option class="text-xs" value="A">A</option>
-                            <option class="text-xs" value="B">B</option>
-                            <option class="text-xs" value="C">C</option>
-                            <option class="text-xs" value="D">D</option>
+                            <option class="" value="A">A</option>
+                            <option class="" value="B">B</option>
+                            <option class="" value="C">C</option>
+                            <option class="" value="D">D</option>
                         </select>
                     </div>
                     <small style="font-size: 10px" class="text-gray-500">This timeout is the exact time to end the class: Example: type '12:00 AM '</small>
