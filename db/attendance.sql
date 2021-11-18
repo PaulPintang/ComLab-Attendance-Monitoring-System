@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2021 at 02:49 PM
+-- Generation Time: Nov 18, 2021 at 05:10 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -62,7 +62,7 @@ CREATE TABLE `profaccounts` (
 --
 
 INSERT INTO `profaccounts` (`id`, `profName`, `username`, `passcode`) VALUES
-(26, 'Mary Antoniette Arino', 'arina', 'asddsadasd'),
+(26, 'Mary Antoniette Arino', 'arina', 'ds'),
 (27, 'Jerry B. Agsunod', 'tom', '1234');
 
 -- --------------------------------------------------------
