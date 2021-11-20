@@ -43,8 +43,8 @@ switch ($action) {
 
 	function doDelete(){
 		include ('../conn.php');
-  		  if (isset($_GET['del'])) {
-			$id = $_GET['del'];
+  		  if (isset($_GET['id'])) {
+			$id = $_GET['id'];
 			mysqli_query($db, "DELETE FROM studaccounts WHERE id=$id");
 			header("location: ./");
    		 }
