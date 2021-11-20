@@ -75,33 +75,16 @@
               <p>Time in:</p>
               <p class="text-indigo-500"><?php echo $row['timeIn']; ?></p>
             </div>
-            <!-- <div class="flex gap-1 items-center">
-                        <p>Exact time to end of the class: </p>
-                        <p class="text-gray-500"><?php echo $row['timeOut']; ?></p>
-                    </div> -->
-
-
             <div class="flex gap-1 items-center">
               <p>Clock: </p>
               <div class="text-indigo-500" id="MyClockDisplay" onload="showTime()"></div>
             </div>
 
-            <!-- End class button with print -->
-
-
             <div class="pt-3 pb-2">
 
-
-
-              <!-- Jessie Code                     -->
-
-
-              <!-- <button class="rounded p-1 pl-4 pr-4 bg-green-400 text-white" type="submit" name="endclass">End class</button> -->
               </a>
               <small class="block text-gray-500 max-w-xs">Clicking this will end the class and generate a file of list of present students in your class today!!</small>
             </div>
-
-           
 
             <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id">
               <div class="relative w-auto my-6 mx-auto max-w-3xl">
@@ -144,14 +127,10 @@
           <?php } ?>
 
 
-
           <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
-        
-
           <br><br>
 
           <!-- End class button with print -->
-
 
           </div>
 
@@ -181,7 +160,6 @@
   </div>
   <div class="bg-gray-100">
 
-
     <!-- table -->
     <div style="font-size: 12px; max-width: 1100px" class="mx-auto">
       <div class="flex justify-between text-gray-500 text-sm pt-10 pb-4" id="total">
@@ -191,8 +169,33 @@
       <div class="flex flex-col table-header">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg" id="table">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <!-- table here -->
+            	 <table class="min-w-full divide-y divide-gray-200" id="myTable">
+                <thead class="bg-gray-50">
+                  <tr>
+
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Rank Time
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Name
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Time In
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Student ID
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      PC no.
+                    </th>
+                  </tr>
+                </thead>
+	               <tbody class="bg-white divide-y divide-gray-200" id="table">
+                  <!-- data here -->
+                  </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -258,7 +261,7 @@
     }
     setInterval(() => {
       loadTable()
-    }, 1000);
+    }, 5000);
 
     window.onload = loadTable;
 
@@ -278,9 +281,6 @@
     }, 1000);
 
     window.onload = loadTotal;
-
-
-
     
   </script>
   <script>
@@ -306,7 +306,7 @@
       }
     }
 </script>
-
+<!-- modal pop up end class -->
 <script type="text/javascript">
   function toggleModal(modalID) {
     document.getElementById(modalID).classList.toggle("hidden");
