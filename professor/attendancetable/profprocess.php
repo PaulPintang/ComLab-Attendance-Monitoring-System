@@ -65,7 +65,7 @@
                     $_SESSION['profName'] = $row['profName'];
                     $_SESSION['id'] = $row['id'];
 
-                  header("location: attendance.php");
+                  header("location: index.php");
 
                 }
                     else{

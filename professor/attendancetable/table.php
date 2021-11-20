@@ -1,8 +1,11 @@
 
+<?php
+ini_set('display_errors',"1");
+    include("profprocess.php");
 
+?>
 
-
-	 <table class="min-w-full divide-y divide-gray-200" id="data">
+	 <table class="min-w-full divide-y divide-gray-200" id="myTable">
 	   <thead class="bg-gray-50">
 	     <tr>
 

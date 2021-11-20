@@ -36,10 +36,10 @@
                         </div>
                     <?php } ?>
 
-                    <input type="text" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none" placeholder="Your fullname" name="studentName" >
-                    <input type="text" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none" placeholder="Your student ID" name="studentId" >
+                    <input type="text" autocomplete="off" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none" placeholder="Your fullname" name="studentName" >
+                    <input type="text" autocomplete="off" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none" placeholder="Your student ID" name="studentId" >
                     <div>
-                        <input type="text" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Your PC no." name="pcNum">
+                        <input autocomplete="off" type="text" class="border-2 border-opacity-50 border-gray-400 rounded p-3 focus:border-purple-500 focus:outline-none w-full" placeholder="Your PC no." name="pcNum">
                     </div>
                     <div class="flex justify-center">
                             <button id="sweetalert" class="bg-purple-900 rounded p-3 pl-5 pr-5 text-white w-full"

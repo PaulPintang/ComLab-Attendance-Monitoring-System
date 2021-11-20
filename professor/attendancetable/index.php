@@ -146,14 +146,7 @@
 
 
           <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
-          <script type="text/javascript">
-            function toggleModal(modalID) {
-              document.getElementById(modalID).classList.toggle("hidden");
-              document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
-              document.getElementById(modalID).classList.toggle("flex");
-              document.getElementById(modalID + "-backdrop").classList.toggle("flex");
-            }
-          </script>
+        
 
           <br><br>
 
@@ -195,69 +188,18 @@
         <!-- display total students here -->
       </div>
 
-      <table class="min-w-full divide-y divide-gray-200" id="data">
-	   <thead class="bg-gray-50">
-	     <tr>
-
-	       <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-	         Rank Time
-	       </th>
-	       <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-	         Name
-	       </th>
-	       <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-	         Time In
-	       </th>
-	       <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-	         Student ID
-	       </th>
-	       <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-	         PC no.
-	       </th>
-	     </tr>
-	   </thead>
-
-	   <tbody class="bg-white divide-y divide-gray-200" id="myTable">
-	     <tr>
-	       <?php while ($row = mysqli_fetch_array($studPresent)) { ?>
-	         <td class="px-6 py-4 whitespace-nowrap">
-	           <div class="text-sm font-medium text-gray-900">
-	             <?php echo $row['id']; ?>
-	           </div>
-
-	         </td>
-	         <td class="px-6 py-4 whitespace-nowrap" id="name">
-	           <div class="text-sm text-gray-900"><?php echo $row['studentName']; ?></div>
-	        
-	         </td>
-	         <td class="px-6 py-4 whitespace-nowrap">
-	           <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-	             <?php echo $row['timeIn']; ?>
-	           </span>
-	         </td>
-	         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-	           <?php echo $row['studentId']; ?>
-	         </td>
-	         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-	          PC-<?php echo $row['pcNum'] ?>
-	         </td>
-	     </tr>
-	   <?php } ?>
-
-	   </tbody>
-	 </table>
-
-
-
+      <div class="flex flex-col table-header">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg" id="table">
+            <!-- table here -->
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-
-
-
+    <!-- end -->
     
-
-
-
     <div class="h-28"></div>
     <div class="flex justify-center text-gray-500 pb-4">
       <small>BUPC Attendance Monitoring System &copy; 2021</small>
@@ -307,7 +249,7 @@
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("link_wrapper").innerHTML =
+          document.getElementById("table").innerHTML =
             this.responseText;
         }
       };
@@ -316,7 +258,7 @@
     }
     setInterval(() => {
       loadTable()
-    }, 7000);
+    }, 1000);
 
     window.onload = loadTable;
 
@@ -335,36 +277,44 @@
       loadTotal()
     }, 1000);
 
-    // window.onload = loadTotal;
+    window.onload = loadTotal;
 
 
 
     
   </script>
   <script>
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
+    function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
 
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
       }
     }
-  }
-}
 </script>
-  
+
+<script type="text/javascript">
+  function toggleModal(modalID) {
+    document.getElementById(modalID).classList.toggle("hidden");
+    document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+    document.getElementById(modalID).classList.toggle("flex");
+    document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+  }
+</script>
 </body>
 
 </html>
