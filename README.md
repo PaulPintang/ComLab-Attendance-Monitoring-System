@@ -1,4 +1,4 @@
-# BUPC ComLab Attendance Monitoring Systeam
+# BUPC ComLab Attendance Monitoring System
 
 Language/s Used: PHP, Tailwind CSS and JavaScript <br>
 Database: MySQL Database <br>
