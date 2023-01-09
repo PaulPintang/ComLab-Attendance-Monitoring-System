@@ -9,10 +9,10 @@ Main Features: Add professors accounts, login with security code, view present s
 
 Screenshot:
 Main
-![This is an image](/screenshot/start.png) <br>
+![This is an image](/screenshots/start.png) <br>
 Dashboard
-![This is an image](/screenshot/dashboard.png) <br>
+![This is an image](/screenshots/dashboard.png) <br>
 Professor login
-![This is an image](/screenshot/goodday.png) <br>
+![This is an image](/screenshots/goodday.png) <br>
 Student login
-![This is an image](/screenshot/student.png) <br>
+![This is an image](/screenshots/student.png) <br>
